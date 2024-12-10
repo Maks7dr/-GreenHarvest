@@ -15,6 +15,7 @@ body {
   line-height: 108%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 
 /* Styles for Tablet devices */
@@ -22,6 +23,7 @@ body {
   .title {
     font-size: 64px;
     line-height: 100%;
+    margin-bottom: 24px;
   }
 }
 
@@ -372,7 +374,7 @@ img {
     width: 440px;
   }
 }
-.title-purpl {
+.title-pink {
   color: #d4bfc4;
 }
 .works-captions {
@@ -505,20 +507,205 @@ img {
 /* #region Vegetables */
 
 .vegetables {
+  background-color: #7a3145;
 }
 .vegetables-title {
+  max-width: 335px;
+}
+@media only screen and (min-width: 768px) {
+  .vegetables-title {
+    max-width: 508px;
+  }
 }
 .vegetables-text {
+  max-width: 335px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  line-height: 143%;
+}
+@media only screen and (min-width: 768px) {
+  .vegetables-text {
+    max-width: 626px;
+    margin-bottom: 52px;
+    font-size: 16px;
+    line-height: 125%;
+  }
 }
 .vegetables-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+@media only screen and (min-width: 768px) {
+  .vegetables-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px 24px;
+  }
+}
+
 .vegetables-item {
+  border-radius: 40px;
+  padding: 32px 24px;
+  width: 335px;
+  height: 376px;
+  background-color: #fbfbfb;
+}
+@media only screen and (min-width: 768px) {
+  .vegetables-item {
+    width: 340px;
+    height: 380px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .vegetables-item {
+    width: 344px;
+    padding: 32px;
+  }
 }
 .vegetables-caption {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #7a3145;
+  margin-bottom: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .vegetables-caption {
+    font-size: 32px;
+  }
 }
 .vegetables-span {
+  font-size: 14px;
+  line-height: 143%;
+  color: #141414;
+  margin-bottom: 12px;
+}
+@media only screen and (min-width: 768px) {
+  .vegetables-span {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .vegetables-span {
+    margin-bottom: 8px;
+  }
 }
 .vegetables-img {
+}
+
+/* #endregion */
+
+/* #region Reviews */
+
+.reviews {
+}
+.title-green {
+  color: #576f35;
+}
+.reviews-title {
+  max-width: 335px;
+  color: #141414;
+}
+@media only screen and (min-width: 768px) {
+  .reviews-title {
+    max-width: 553px;
+  }
+}
+.reviews-subtitle {
+  max-width: 335px;
+  font-size: 14px;
+  line-height: 143%;
+  color: #141414;
+  margin-bottom: 40px;
+}
+@media only screen and (min-width: 768px) {
+  .reviews-subtitle {
+    max-width: 553px;
+    font-size: 16px;
+    line-height: 125%;
+    margin-bottom: 52px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .reviews-list {
+    display: flex;
+    gap: 24px;
+  }
+}
+.reviews-item {
+  border: 1px solid #d4bfc4;
+  border-radius: 24px;
+  padding: 20px 16px;
+  width: 335px;
+}
+
+.reviews-item:not(:first-child) {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .reviews-item:not(:last-child) {
+    display: block;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .reviews-item:last-child {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .reviews-item {
+    padding: 20px;
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .reviews-item {
+    width: 344px;
+  }
+}
+.reviews-img {
+  margin: 0 auto 24px;
+}
+.reviews-caption {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 111%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #141414;
+  margin-bottom: 8px;
+}
+.reviews-text {
+  font-size: 14px;
+  line-height: 143%;
+  text-align: center;
+  color: #858585;
+}
+@media only screen and (min-width: 768px) {
+  .reviews-text {
+    font-size: 16px;
+    line-height: 125%;
+  }
+}
+.reviews-icon {
+  display: block;
+  margin: 28px auto 0;
+}
+@media only screen and (min-width: 768px) {
+  .reviews-icon {
+    margin: 32px auto 0;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .reviews-icon {
+    display: none;
+  }
 }
 
 /* #endregion */
