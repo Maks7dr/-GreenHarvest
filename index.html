@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Organic vegetables to your diet today" />
     <title>Green Harvest</title>
     <link
       rel="stylesheet"
@@ -21,8 +22,339 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <main></main>
-
+    <main>
+      <!-- Header and Hero sections -->
+      <section class="hero-bg">
+        <div class="container hero">
+          <header class="header">
+            <a href="./index.html" class="logo">
+              <svg width="20" height="20" class="icon-logo">
+                <use href="./img/icons.svg#icon-logo"></use>
+              </svg>
+              <svg width="188" height="17" class="icon-logo-text">
+                <use href="./img/icons.svg#icon-logo-text"></use>
+              </svg>
+            </a>
+            <nav class="header-nav">
+              <ul class="header-nav-list">
+                <li class="header-nav-item">
+                  <a href="#how-it-works" class="header-nav-link"
+                    >How It Works</a
+                  >
+                </li>
+                <li class="header-nav-item">
+                  <a href="#vegetables" class="header-nav-link">Vegetables</a>
+                </li>
+                <li class="header-nav-item">
+                  <a href="#reviews" class="header-nav-link">Reviews</a>
+                </li>
+              </ul>
+            </nav>
+            <button type="button" class="btn header-btn">Shop now</button>
+            <button type="button" class="btn-menu">
+              <svg width="32" height="32" class="btn-menu-icon">
+                <use href="./img/icons.svg#icon-line"></use>
+              </svg>
+            </button>
+          </header>
+          <h1 class="hero-title">organic vegetables to your diet today!</h1>
+          <p class="hero-text">
+            Our expertly curated vegetable baskets are made with the freshest,
+            highest quality vegetables available. Fresh Harvest Box has got you
+            covered. Fresh, high-quality vegetables in expertly curated
+            vegetable baskets delivered to you.
+          </p>
+        </div>
+      </section>
+      <!--How it works section -->
+      <section id="how-it-works" class="works">
+        <div class="container works-container">
+          <h2 class="visually-hidden">How it Works</h2>
+          <div class="works-box">
+            <picture>
+              <source
+                media="(min-width: 1280px)"
+                srcset="
+                  ./img/how-it-works/girl-desk@1x.png 1x,
+                  ./img/how-it-works/girl-desk@2x.png 2x
+                "
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="
+                  ./img/how-it-works/girl-tab@1x.png 1x,
+                  ./img/how-it-works/girl-tab@2x.png 2x
+                "
+              />
+              <source
+                media="(max-width: 767px)"
+                srcset="
+                  ./img/how-it-works/girl-mob@1x.png 1x,
+                  ./img/how-it-works/girl-mob@2x.png 2x
+                "
+              />
+              <img
+                src="./img/how-it-works/girl-mob@1x.png"
+                alt="woman"
+                width="335"
+                height="452"
+                class="works-img"
+              />
+            </picture>
+          </div>
+          <div class="works-wrapper">
+            <h3 class="works-title">
+              To order your <span class="title-purpl">vegetable</span> basket,
+              simply follow these <span class="title-purpl">easy steps</span>
+            </h3>
+            <p class="works-captions">
+              Our baskets are assembled with care and delivered straight to your
+              doorstep, so you can enjoy the taste of fresh fruit without ever
+              leaving your home.
+            </p>
+            <ol class="works-list">
+              <li class="works-item">
+                <p class="works-text">
+                  Just choose
+                  <span class="works-text-black">the vegetable</span> you want
+                  to order by clicking on the checkboxes
+                  <span class="works-text-black">next to it</span>.
+                </p>
+              </li>
+              <li class="works-item">
+                <p class="works-text">
+                  Click on <span class="works-text-black">the basket</span> and
+                  fill out&nbspthe&nbspform.
+                </p>
+              </li>
+              <li class="works-item">
+                <p class="works-text">
+                  Sit back and relax! Your
+                  <span class="works-text-black">fresh vegetables</span> basket
+                  will be delivered.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Advertisement -->
+      <section class="advertisement sections">
+        <div class="container">
+          <h2 class="visually-hidden">Advertisement</h2>
+          <h3 class="advertisement-captions">
+            <span class="advertisement-text">Discount up to 40%!</span> Taste
+            the vitamins and keep your health
+          </h3>
+        </div>
+      </section>
+      <!-- Vegetables -->
+      <section class="vegetables sections">
+        <div class="container">
+          <h2 class="vegetables-title">organic vegetables</h2>
+          <p class="vegetables-text">
+            Our organic vegetables are hand-picked from local farms and
+            delivered straight to your doorstep, ensuring that you get the
+            freshest and most nutritious produce possible.
+          </p>
+          <ul class="vegetables-list">
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">eggplant</h3>
+              <span class="vegetables-span">60 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/eggplant-desk@1x.png 1x,
+                    ./img/vegetables/eggplant-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/eggplant-tab@1x.png 1x,
+                    ./img/vegetables/eggplant-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/eggplant-mob@1x.png 1x,
+                    ./img/vegetables/eggplant-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/eggplant-mob@1x.png"
+                  alt="eggplant"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">leek</h3>
+              <span class="vegetables-span">50 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/leek-desk@1x.png 1x,
+                    ./img/vegetables/leek-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/leek-tab@1x.png 1x,
+                    ./img/vegetables/leek-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/leek-mob@1x.png 1x,
+                    ./img/vegetables/leek-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/leek-mob@1x.png"
+                  alt="leek"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">mushrooms</h3>
+              <span class="vegetables-span">40 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/mushrooms-desk@1x.png 1x,
+                    ./img/vegetables/mushrooms-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/mushrooms-tab@1x.png 1x,
+                    ./img/vegetables/mushrooms-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/mushrooms-mob@1x.png 1x,
+                    ./img/vegetables/mushrooms-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/mushrooms-mob@1x.png"
+                  alt="mushrooms"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">corn</h3>
+              <span class="vegetables-span">60 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/corn-desk@1x.png 1x,
+                    ./img/vegetables/corn-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/corn-tab@1x.png 1x,
+                    ./img/vegetables/corn-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/corn-mob@1x.png 1x,
+                    ./img/vegetables/corn-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/corn-mob@1x.png"
+                  alt="corn"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">sweet potatoes</h3>
+              <span class="vegetables-span">50 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/potatoes-desc@1x.png 1x,
+                    ./img/vegetables/potatoes-desc@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/potatoes-tab@1x.png 1x,
+                    ./img/vegetables/potatoes-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/potatoes-mob@1x.png 1x,
+                    ./img/vegetables/potatoes-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/potatoes-mob@1x.png"
+                  alt="potatoes"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+            <li class="vegetables-item">
+              <h3 class="vegetables-caption">carrot</h3>
+              <span class="vegetables-span">40 USD / kg</span>
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/vegetables/carrot-desk@1x.png 1x,
+                    ./img/vegetables/carrot-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/vegetables/carrot-tab@1x.png 1x,
+                    ./img/vegetables/carrot-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/vegetables/carrot-mob@1x.png 1x,
+                    ./img/vegetables/carrot-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/vegetables/carrot-mob@1x.png"
+                  alt="carrot"
+                  class="vegetables-img"
+                />
+              </picture>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
