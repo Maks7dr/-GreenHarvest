@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Organic vegetables to your diet today" />
+    <meta name="keywords" content="Organic vegetables" />
     <title>Green Harvest</title>
     <link
       rel="stylesheet"
@@ -50,8 +51,10 @@
                 </li>
               </ul>
             </nav>
-            <button type="button" class="btn header-btn">Shop now</button>
-            <button type="button" class="btn-menu">
+            <button type="button" class="btn header-btn" name="Shop-now">
+              Shop now
+            </button>
+            <button type="button" class="btn-menu js-open-menu" name="mob-menu">
               <svg width="32" height="32" class="btn-menu-icon">
                 <use href="./img/icons.svg#icon-line"></use>
               </svg>
@@ -64,6 +67,30 @@
             covered. Fresh, high-quality vegetables in expertly curated
             vegetable baskets delivered to you.
           </p>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu is-open js-menu-container">
+          <div class="container mobile-overlay">
+            <button class="mobile-close js-close-menu">
+              <svg width="32" height="32">
+                <use href="./img/icons.svg#icon-close"></use>
+              </svg>
+            </button>
+            <ul class="mobile-list">
+              <li class="mobile-item mobile-link-active">
+                <a href="#how-it-works" class="mobile-link">How It Works</a>
+              </li>
+              <li class="mobile-item">
+                <a href="#vegetables" class="mobile-link">Vegetables</a>
+              </li>
+              <li class="mobile-item">
+                <a href="#reviews" class="mobile-link">Reviews</a>
+              </li>
+            </ul>
+            <button type="button" class="btn mobile-btn" name="Shop-now">
+              Shop now
+            </button>
+          </div>
         </div>
       </section>
       <!--How it works section -->
@@ -474,7 +501,9 @@
                   placeholder="Comment"
                   class="order-textarea"
                 ></textarea>
-                <button type="submit" class="btn order-btn">Send</button>
+                <button type="submit" class="btn order-btn" name="Send">
+                  Send
+                </button>
               </form>
             </div>
             <div class="order-wrapper">
@@ -513,6 +542,9 @@
                 <li class="order-social-item">
                   <a
                     href="https://www.instagram.com/goitclub/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Link to Facebok"
                     class="order-social-link"
                     >instagram</a
                   >
@@ -520,6 +552,9 @@
                 <li class="order-social-item">
                   <a
                     href="https://www.facebook.com/goITclub/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Link to Facebok"
                     class="order-social-link"
                     >facebook</a
                   >
@@ -527,6 +562,9 @@
                 <li class="order-social-item">
                   <a
                     href="https://www.youtube.com/c/GoIT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Link to Facebok"
                     class="order-social-link"
                     >youtube</a
                   >
@@ -586,6 +624,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/menu.js"></script>
   </body>
 </html>
