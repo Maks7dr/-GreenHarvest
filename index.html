@@ -149,7 +149,7 @@
         </div>
       </section>
       <!-- Vegetables -->
-      <section class="vegetables sections">
+      <section id="vegetables" class="vegetables sections">
         <div class="container">
           <h2 class="vegetables-title title">
             organic <span class="title-pink">vegetables</span>
@@ -356,7 +356,7 @@
         </div>
       </section>
       <!-- Reviews -->
-      <section class="reviews sections">
+      <section id="reviews" class="reviews sections">
         <div class="container">
           <h2 class="reviews-title title">
             reviews from our <span class="title-green">customers</span>
@@ -427,6 +427,113 @@
           <svg width="77" height="12" class="reviews-icon">
             <use href="./img/icons.svg#icon-pagination"></use>
           </svg>
+        </div>
+      </section>
+      <!-- Yout order -->
+      <section class="order sections">
+        <div class="container">
+          <h2 class="title order-title">
+            Fresh <span class="title-pink">Harvest</span> Box has got you
+            covered
+          </h2>
+          <p class="order-text">
+            Our boxes are packed with delicious, nutritious vegetables, perfect
+            for anyone looking to eat healthier or support local farmers. Order
+            your box today and start enjoying the best that nature has to offer!
+          </p>
+          <div class="order-wrap">
+            <div class="order-box">
+              <form class="order-form">
+                <p class="order-caption">
+                  Ordering <span class="title-primary">from us</span> is quick
+                  and easy! Fill out
+                  <span class="title-green">the form</span> below and we will
+                  contact you !
+                </p>
+                <label for="name" class="order-label"></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Full Name"
+                  class="order-input"
+                />
+                <label for="email" class="order-label"></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+                  class="order-input"
+                />
+                <label for="comment" class="order-comment"></label>
+                <textarea
+                  name="comment"
+                  id="comment"
+                  placeholder="Comment"
+                  class="order-textarea"
+                ></textarea>
+                <button type="submit" class="btn order-btn">Send</button>
+              </form>
+            </div>
+            <div class="order-wrapper">
+              <picture>
+                <source
+                  media="(min-width: 1280px)"
+                  srcset="
+                    ./img/your-order/pic-desk@1x.png 1x,
+                    ./img/your-order/pic-desk@2x.png 2x
+                  "
+                />
+                <source
+                  media="(min-width: 768px)"
+                  srcset="
+                    ./img/your-order/pic-tab@1x.png 1x,
+                    ./img/your-order/pic-tab@2x.png 2x
+                  "
+                />
+                <source
+                  media="(max-width: 767px)"
+                  srcset="
+                    ./img/your-order/pic-mob@1x.png 1x,
+                    ./img/your-order/pic-mob@2x.png 2x
+                  "
+                />
+                <img
+                  src="./img/your-order/pic-mob@1x.png"
+                  alt="Women-cook"
+                  width="295"
+                  height="272"
+                  class="order-img"
+                />
+              </picture>
+              <p class="order-social-text">Follow us on our social networks:</p>
+              <ul class="order-social-list">
+                <li class="order-social-item">
+                  <a
+                    href="https://www.instagram.com/goitclub/"
+                    class="order-social-link"
+                    >instagram</a
+                  >
+                </li>
+                <li class="order-social-item">
+                  <a
+                    href="https://www.facebook.com/goITclub/"
+                    class="order-social-link"
+                    >facebook</a
+                  >
+                </li>
+                <li class="order-social-item">
+                  <a
+                    href="https://www.youtube.com/c/GoIT"
+                    class="order-social-link"
+                    >youtube</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
     </main>
