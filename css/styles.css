@@ -734,6 +734,7 @@ img {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  flex-shrink: 0;
 }
 .dot {
   all: unset;
