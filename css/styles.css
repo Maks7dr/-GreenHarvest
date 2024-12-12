@@ -743,6 +743,7 @@ img {
   border: none;
   transition: 250ms ease-in-out;
   transition-property: background-color;
+  flex-shrink: 1;
 }
 .dot.active {
   background-color: #576f35;
