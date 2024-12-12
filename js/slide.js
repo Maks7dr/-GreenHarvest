@@ -1,62 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.reviews-item'); // Елементи відгуків
-  const dots = document.querySelectorAll('.dot'); // Кнопки-пагінація
-  const reviewsList = document.querySelector('.reviews-list'); // Контейнер відгуків
-
-  let currentSlide = 0;
+  const items = document.querySelectorAll('.reviews-item');
+  const dots = document.querySelectorAll('.dot');
   const viewportWidth = window.innerWidth;
+  let currentIndex = 0;
 
-  // Функція для оновлення видимого слайду
-  const updateSlide = () => {
+  // Оновити відображення слайдів
+  const updateSlides = () => {
+    const viewportWidth = window.innerWidth;
+
     if (viewportWidth < 768) {
-      // Мобільний режим: показуємо один слайд
+      // Мобільні: показуємо один елемент
       items.forEach((item, i) => {
-        item.style.display = i === currentSlide ? 'block' : 'none';
+        item.style.display = i === currentIndex ? 'block' : 'none';
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
       });
     } else if (viewportWidth >= 768 && viewportWidth < 1280) {
-      // Планшетний режим: два слайди
+      // Планшети: показуємо два елементи
       items.forEach((item, i) => {
-        item.style.display =
-          i === currentSlide || i === (currentSlide + 1) % items.length
-            ? 'block'
-            : 'none';
+        if (i === currentIndex || i === (currentIndex + 1) % items.length) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
       });
     } else {
-      // Десктоп: показуємо всі слайди
+      // Десктопи: показуємо всі елементи
       items.forEach(item => {
         item.style.display = 'block';
       });
+      dots.forEach(dot => {
+        dot.style.display = 'none'; // Ховаємо кнопки
+      });
     }
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentSlide);
-    });
   };
 
   // Перехід до наступного слайду
-  const nextSlide = () => {
-    currentSlide = (currentSlide + 1) % items.length;
-    updateSlide();
+  const goToSlide = index => {
+    currentIndex = index;
+    updateSlides();
   };
 
-  // Обробник кліків для крапок
+  // Додати події кліку для крапок
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      currentSlide = i;
-      updateSlide();
+      goToSlide(i);
     });
   });
 
-  // Автоматичне гортання на планшеті
-  if (viewportWidth >= 768 && viewportWidth < 1280) {
-    setInterval(nextSlide, 3000); // Перегортання кожні 3 секунди
-  }
-
   // Ініціалізація
-  updateSlide();
+  updateSlides();
 
-  // Динамічне оновлення при зміні розміру вікна
-  window.addEventListener('resize', () => {
-    updateSlide();
-  });
+  // Оновлення при зміні розміру вікна
+  window.addEventListener('resize', updateSlides);
 });
