@@ -736,6 +736,7 @@ img {
   transform: translateX(-50%);
 }
 .dot {
+  all: unset;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -743,7 +744,6 @@ img {
   border: none;
   transition: 250ms ease-in-out;
   transition-property: background-color;
-  flex-shrink: 0;
 }
 .dot.active {
   background-color: #576f35;
