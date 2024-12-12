@@ -672,6 +672,7 @@ img {
 .reviews-item:not(:first-child) {
   display: none;
 }
+
 @media only screen and (min-width: 768px) {
   .reviews-item:not(:last-child) {
     display: block;
@@ -719,19 +720,39 @@ img {
     line-height: 125%;
   }
 }
-.reviews-icon {
-  display: block;
-  margin: 28px auto 0;
-}
-@media only screen and (min-width: 768px) {
-  .reviews-icon {
-    margin: 32px auto 0;
-  }
-}
+
 @media only screen and (min-width: 1280px) {
   .reviews-icon {
     display: none;
   }
+}
+
+.reviews-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d4bfc4;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.dot.active {
+  background-color: #576f35;
+}
+
+@media only screen and (min-width: 1280px) {
+  .reviews-item {
+    display: block !important;
+  }
+}
+.dot {
+  display: block;
 }
 
 /* #endregion */
@@ -1188,7 +1209,6 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
-  display: flex;
   background-color: #576f35;
   z-index: 999;
   transform: translateX(100%);
@@ -1196,9 +1216,9 @@ img {
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .mobile-menu {
-    left: auto;
+    /* left: auto;
     right: 0;
-    width: 351px;
+    width: 351px; */
     background-color: rgba(20, 20, 20, 0.4);
     height: 100%;
   }
@@ -1213,16 +1233,18 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
   padding-top: 196px;
   padding-bottom: 52px;
 }
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .mobile-overlay {
     background-color: #576f35;
+    position: absolute;
+    right: 0;
+    width: 351px;
     padding-top: 360px;
     padding-bottom: 48px;
-    width: 100%;
-    height: 100%;
   }
 }
 
@@ -1230,6 +1252,9 @@ img {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background-color: transparent;
 }
@@ -1237,6 +1262,14 @@ img {
   .mobile-close {
     top: 32px;
     right: 32px;
+  }
+}
+.mobile-icon {
+  width: 32px;
+  height: 32px;
+}
+@media only screen and (min-width: 768px) {
+  .mobile-icon {
     width: 40px;
     height: 40px;
   }

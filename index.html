@@ -72,7 +72,7 @@
         <div class="mobile-menu js-menu-container">
           <div class="container mobile-overlay">
             <button class="mobile-close js-close-menu">
-              <svg width="32" height="32">
+              <svg width="32" height="32" class="mobile-icon">
                 <use href="./img/icons.svg#icon-close"></use>
               </svg>
             </button>
@@ -87,7 +87,11 @@
                 <a href="#reviews" class="mobile-link">Reviews</a>
               </li>
             </ul>
-            <button type="button" class="btn mobile-btn" name="Shop-now">
+            <button
+              type="button"
+              class="btn mobile-btn mobile-link"
+              name="Shop-now"
+            >
               Shop now
             </button>
           </div>
@@ -451,9 +455,11 @@
               </p>
             </li>
           </ul>
-          <svg width="77" height="12" class="reviews-icon">
-            <use href="./img/icons.svg#icon-pagination"></use>
-          </svg>
+          <div class="reviews-dots">
+            <button class="dot" data-slide="1"></button>
+            <button class="dot" data-slide="2"></button>
+            <button class="dot" data-slide="3"></button>
+          </div>
         </div>
       </section>
       <!-- Yout order -->
@@ -624,6 +630,7 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="./js/menu.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/slide.js" defer></script>
   </body>
 </html>
