@@ -980,8 +980,10 @@ img {
   color: #d4bfc4;
   margin-bottom: 16px;
 }
-.order-social-list {
-  /* position: relative; */
+@media only screen and (max-width: 767px) {
+  .order-social-list {
+    row-gap: 8px;
+  }
 }
 @media only screen and (min-width: 768px) {
   .order-social-text {
