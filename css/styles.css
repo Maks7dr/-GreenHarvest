@@ -668,6 +668,17 @@ img {
   padding: 20px 16px;
   width: 335px;
 }
+@media only screen and (min-width: 768px) {
+  .reviews-item {
+    padding: 20px;
+    width: 340px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .reviews-item {
+    width: 344px;
+  }
+}
 
 .reviews-item:not(:first-child) {
   display: none;
@@ -684,17 +695,6 @@ img {
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .reviews-item {
-    padding: 20px;
-    width: 340px;
-  }
-}
-@media only screen and (min-width: 1280px) {
-  .reviews-item {
-    width: 344px;
-  }
-}
 .reviews-img {
   margin: 0 auto 24px;
 }
