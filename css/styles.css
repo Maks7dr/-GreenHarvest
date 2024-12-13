@@ -721,11 +721,11 @@ img {
   }
 }
 
-@media only screen and (min-width: 1280px) {
+/* @media only screen and (min-width: 1280px) {
   .reviews-icon {
     display: none;
   }
-}
+} */
 
 .reviews-dots {
   display: flex;
