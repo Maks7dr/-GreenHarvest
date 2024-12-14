@@ -498,6 +498,11 @@ img {
 
 .advertisement {
 }
+@media only screen and (min-width: 1280px) {
+  .advertisement-container {
+    padding-left: 116px;
+  }
+}
 .advertisement-captions {
   font-weight: 600;
   font-size: 48px;
@@ -507,9 +512,10 @@ img {
   color: #141414;
 }
 .advertisement-text {
-  display: inline-block;
+  display: flex;
   border-radius: 12px;
   width: 335px;
+  max-height: 102px;
   color: #fbfbfb;
   background-color: #576f35;
 }
@@ -519,17 +525,25 @@ img {
     line-height: 100%;
   }
   .advertisement-text {
+    align-items: flex-end;
     width: 675px;
+    height: 86px;
   }
 }
 @media only screen and (min-width: 1280px) {
   .advertisement-captions {
     font-size: 76px;
+    max-width: 1054px;
   }
   .advertisement-text {
     width: 808px;
+    height: 84px;
+    align-items: center;
+    margin-left: -16px;
+    justify-content: end;
   }
 }
+
 /* #endregion */
 
 /* #region Vegetables */
