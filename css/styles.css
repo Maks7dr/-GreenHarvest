@@ -775,21 +775,21 @@ img {
 } */
 
 /* swipper */
-
-/* Общий стиль для списка */
+/* Основной стиль для списка */
 .reviews-list {
   display: flex;
-  overflow-x: auto; /* Горизонтальная прокрутка для телефонов и планшетов */
+  overflow-x: auto; /* Горизонтальная прокрутка */
   scroll-snap-type: x mandatory; /* Привязка элементов к экрану */
-  gap: 16px; /* Расстояние между элементами */
+  gap: 16px;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+/* Элементы списка */
 .reviews-item {
   flex: 0 0 100%; /* Один элемент занимает 100% ширины экрана */
-  scroll-snap-align: start; /* Элемент "привязывается" к началу экрана */
+  scroll-snap-align: start; /* Привязка элемента к началу */
   border: 1px solid #d4bfc4;
   border-radius: 24px;
   padding: 20px 16px;
@@ -811,7 +811,7 @@ img {
   }
 
   .reviews-item {
-    flex: 0 0 calc(33.33% - 16px); /* Три элемента на экране */
+    flex: 0 0 calc(33.33% - 16px); /* Три элемента */
   }
 }
 

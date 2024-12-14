@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
   const reviewsList = document.querySelector('.reviews-list');
-  if (!reviewsList) {
-    console.error('Element .reviews-list not found');
-    return;
-  }
+  const reviewsItems = document.querySelectorAll('.reviews-item');
+  const totalItems = reviewsItems.length;
 
   let isDragging = false;
   let startX = 0;
   let scrollLeft = 0;
+  let currentIndex = 0; // Текущий индекс активного элемента
+
+  // Функция для прокрутки к нужному индексу
+  function goToIndex(index) {
+    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
+    reviewsList.scrollTo({
+      left: index * itemWidth,
+      behavior: 'smooth', // Плавная прокрутка
+    });
+  }
 
   // Начало свайпа
   reviewsList.addEventListener('mousedown', e => {
-    if (window.innerWidth >= 1280) return;
+    if (window.innerWidth >= 1280) return; // Отключаем свайпы для ноутбуков
     isDragging = true;
     startX = e.pageX - reviewsList.offsetLeft;
     scrollLeft = reviewsList.scrollLeft;
     reviewsList.style.cursor = 'grabbing';
-    console.log('mousedown', { startX, scrollLeft });
   });
 
   reviewsList.addEventListener('touchstart', e => {
@@ -24,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     isDragging = true;
     startX = e.touches[0].pageX - reviewsList.offsetLeft;
     scrollLeft = reviewsList.scrollLeft;
-    console.log('touchstart', { startX, scrollLeft });
   });
 
   // Во время свайпа
@@ -32,9 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - reviewsList.offsetLeft;
-    const walk = x - startX;
+    const walk = x - startX; // Расстояние свайпа
     reviewsList.scrollLeft = scrollLeft - walk;
-    console.log('mousemove', { walk, scrollLeft: reviewsList.scrollLeft });
   });
 
   reviewsList.addEventListener('touchmove', e => {
@@ -42,23 +47,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const x = e.touches[0].pageX - reviewsList.offsetLeft;
     const walk = x - startX;
     reviewsList.scrollLeft = scrollLeft - walk;
-    console.log('touchmove', { walk, scrollLeft: reviewsList.scrollLeft });
   });
 
   // Конец свайпа
   reviewsList.addEventListener('mouseup', () => {
     isDragging = false;
     reviewsList.style.cursor = 'grab';
-    console.log('mouseup');
-  });
-
-  reviewsList.addEventListener('mouseleave', () => {
-    isDragging = false;
-    console.log('mouseleave');
+    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
+    currentIndex = Math.round(reviewsList.scrollLeft / itemWidth); // Рассчитать ближайший индекс
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
+    goToIndex(currentIndex);
   });
 
   reviewsList.addEventListener('touchend', () => {
     isDragging = false;
-    console.log('touchend');
+    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
+    currentIndex = Math.round(reviewsList.scrollLeft / itemWidth);
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
+    goToIndex(currentIndex);
+  });
+
+  reviewsList.addEventListener('mouseleave', () => {
+    isDragging = false;
   });
 });
