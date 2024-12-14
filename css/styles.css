@@ -776,6 +776,46 @@ img {
 
 /* swipper */
 
+/* Загальний стиль для списку */
+.reviews-list {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto; /* Дозволяє горизонтальне прокручування */
+  scroll-snap-type: x mandatory; /* Додає прив'язку до елементів при гортанні */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Стилі для елементів списку */
+.reviews-item {
+  flex: 0 0 auto; /* Елементи мають фіксовану ширину */
+  scroll-snap-align: center; /* Прив'язка елемента до центру при зупинці */
+  border: 1px solid #d4bfc4;
+  border-radius: 24px;
+  padding: 20px 16px;
+  width: 100%; /* За замовчуванням - повна ширина на мобільних */
+  max-width: 335px; /* Максимальна ширина елемента */
+}
+
+/* Адаптивні налаштування */
+@media only screen and (min-width: 768px) {
+  .reviews-item {
+    width: 45%; /* Два елементи на планшетах */
+    max-width: none;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .reviews-list {
+    overflow-x: hidden; /* Прибираємо горизонтальне прокручування */
+    justify-content: space-between; /* Розташовуємо елементи рівномірно */
+  }
+  .reviews-item {
+    width: 30%; /* Три елементи на ноутбуках */
+  }
+}
+
 /* #endregion */
 
 /* #region Your order */
