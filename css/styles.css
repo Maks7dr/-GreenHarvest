@@ -788,31 +788,35 @@ img {
 }
 
 /* Стилі для елементів списку */
+.reviews-list {
+  display: flex;
+  gap: 16px;
+  overflow: hidden; /* Сховати зайві елементи за межами області видимості */
+  width: 100%;
+  position: relative;
+}
+
 .reviews-item {
-  flex: 0 0 auto; /* Елементи мають фіксовану ширину */
-  scroll-snap-align: center; /* Прив'язка елемента до центру при зупинці */
-  border: 1px solid #d4bfc4;
-  border-radius: 24px;
-  padding: 20px 16px;
-  width: 100%; /* За замовчуванням - повна ширина на мобільних */
-  max-width: 335px; /* Максимальна ширина елемента */
+  flex: 0 0 100%; /* Кожен елемент займає всю ширину */
+  transition: transform 0.3s ease; /* Анімація для плавного переходу між елементами */
 }
 
-/* Адаптивні налаштування */
-@media only screen and (min-width: 768px) {
+.reviews-img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+
+@media (min-width: 768px) {
   .reviews-item {
-    width: 45%; /* Два елементи на планшетах */
-    max-width: none;
+    flex: 0 0 50%; /* Для планшетів показувати 2 елементи */
   }
 }
 
-@media only screen and (min-width: 1280px) {
-  .reviews-list {
-    overflow-x: hidden; /* Прибираємо горизонтальне прокручування */
-    justify-content: space-between; /* Розташовуємо елементи рівномірно */
-  }
+@media (min-width: 1280px) {
   .reviews-item {
-    width: 30%; /* Три елементи на ноутбуках */
+    flex: 0 0 33.33%; /* Для ноутбуків показувати 3 елементи */
   }
 }
 
