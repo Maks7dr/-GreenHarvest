@@ -1,75 +1,63 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const reviewsList = document.querySelector('.reviews-list');
   const reviewsItems = document.querySelectorAll('.reviews-item');
   const totalItems = reviewsItems.length;
 
-  let isDragging = false;
+  let currentIndex = 0;
   let startX = 0;
-  let scrollLeft = 0;
-  let currentIndex = 0; // Текущий индекс активного элемента
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let isDragging = false;
 
-  // Функция для прокрутки к нужному индексу
-  function goToIndex(index) {
-    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
-    reviewsList.scrollTo({
-      left: index * itemWidth,
-      behavior: 'smooth', // Плавная прокрутка
-    });
+  // Добавляем события для мыши и касания
+  reviewsList.addEventListener('mousedown', startDrag);
+  reviewsList.addEventListener('touchstart', startDrag);
+  reviewsList.addEventListener('mousemove', drag);
+  reviewsList.addEventListener('touchmove', drag);
+  reviewsList.addEventListener('mouseup', endDrag);
+  reviewsList.addEventListener('touchend', endDrag);
+  reviewsList.addEventListener('mouseleave', endDrag);
+
+  function startDrag(e) {
+    isDragging = true;
+    startX = getPositionX(e);
+    reviewsList.style.transition = 'none'; // Убираем плавность во время перетаскивания
   }
 
-  // Начало свайпа
-  reviewsList.addEventListener('mousedown', e => {
-    if (window.innerWidth >= 1280) return; // Отключаем свайпы для ноутбуков
-    isDragging = true;
-    startX = e.pageX - reviewsList.offsetLeft;
-    scrollLeft = reviewsList.scrollLeft;
-    reviewsList.style.cursor = 'grabbing';
-  });
-
-  reviewsList.addEventListener('touchstart', e => {
-    if (window.innerWidth >= 1280) return;
-    isDragging = true;
-    startX = e.touches[0].pageX - reviewsList.offsetLeft;
-    scrollLeft = reviewsList.scrollLeft;
-  });
-
-  // Во время свайпа
-  reviewsList.addEventListener('mousemove', e => {
+  function drag(e) {
     if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - reviewsList.offsetLeft;
-    const walk = x - startX; // Расстояние свайпа
-    reviewsList.scrollLeft = scrollLeft - walk;
-  });
+    const currentPosition = getPositionX(e);
+    const diff = currentPosition - startX;
+    currentTranslate = prevTranslate + diff;
+    reviewsList.style.transform = `translateX(${currentTranslate}px)`;
+  }
 
-  reviewsList.addEventListener('touchmove', e => {
-    if (!isDragging) return;
-    const x = e.touches[0].pageX - reviewsList.offsetLeft;
-    const walk = x - startX;
-    reviewsList.scrollLeft = scrollLeft - walk;
-  });
-
-  // Конец свайпа
-  reviewsList.addEventListener('mouseup', () => {
+  function endDrag() {
     isDragging = false;
-    reviewsList.style.cursor = 'grab';
+
     const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
-    currentIndex = Math.round(reviewsList.scrollLeft / itemWidth); // Рассчитать ближайший индекс
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
-    goToIndex(currentIndex);
-  });
+    const movedBy = currentTranslate - prevTranslate;
 
-  reviewsList.addEventListener('touchend', () => {
-    isDragging = false;
-    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
-    currentIndex = Math.round(reviewsList.scrollLeft / itemWidth);
-    if (currentIndex < 0) currentIndex = 0;
-    if (currentIndex >= totalItems) currentIndex = totalItems - 1;
-    goToIndex(currentIndex);
-  });
+    if (movedBy < -50 && currentIndex < totalItems - 1) {
+      currentIndex++;
+    }
 
-  reviewsList.addEventListener('mouseleave', () => {
-    isDragging = false;
-  });
+    if (movedBy > 50 && currentIndex > 0) {
+      currentIndex--;
+    }
+
+    setPositionByIndex();
+  }
+
+  function getPositionX(e) {
+    return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+  }
+
+  function setPositionByIndex() {
+    const itemWidth = reviewsItems[0].offsetWidth + 16;
+    currentTranslate = -currentIndex * itemWidth;
+    prevTranslate = currentTranslate;
+    reviewsList.style.transition = 'transform 0.3s ease-in-out';
+    reviewsList.style.transform = `translateX(${currentTranslate}px)`;
+  }
 });
