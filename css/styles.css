@@ -645,7 +645,7 @@ img {
 
 .reviews {
 }
-.title-green {
+/* .title-green {
   color: #576f35;
 }
 .reviews-title {
@@ -728,7 +728,7 @@ img {
   font-size: 14px;
   line-height: 143%;
   text-align: center;
-  /* color: #858585; */
+
   color: #373737;
 }
 @media only screen and (min-width: 768px) {
@@ -736,7 +736,7 @@ img {
     font-size: 16px;
     line-height: 125%;
   }
-}
+} */
 
 /* button dots */
 /* .reviews-dots {
