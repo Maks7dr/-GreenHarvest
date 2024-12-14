@@ -1,8 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   const reviewsList = document.querySelector('.reviews-list');
-  let isDragging = false; // Флаг для отслеживания свайпа
-  let startX = 0; // Начальная позиция свайпа
-  let scrollLeft = 0; // Начальное смещение прокрутки
+  if (!reviewsList) {
+    console.error('Element .reviews-list not found');
+    return;
+  }
+
+  let isDragging = false;
+  let startX = 0;
+  let scrollLeft = 0;
 
   // Начало свайпа
   reviewsList.addEventListener('mousedown', e => {
@@ -10,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     isDragging = true;
     startX = e.pageX - reviewsList.offsetLeft;
     scrollLeft = reviewsList.scrollLeft;
+    reviewsList.style.cursor = 'grabbing';
   });
 
   reviewsList.addEventListener('touchstart', e => {
@@ -24,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - reviewsList.offsetLeft;
-    const walk = x - startX; // Насколько пользователь свайпнул
+    const walk = x - startX;
     reviewsList.scrollLeft = scrollLeft - walk;
   });
 
@@ -38,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Конец свайпа
   reviewsList.addEventListener('mouseup', () => {
     isDragging = false;
+    reviewsList.style.cursor = 'grab';
   });
 
   reviewsList.addEventListener('mouseleave', () => {
