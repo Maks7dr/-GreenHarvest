@@ -776,17 +776,18 @@ img {
 
 /* swipper */
 .reviews-slider {
-  overflow: hidden; /* Прячем лишнее */
+  overflow: hidden; /* Скрываем элементы за пределами контейнера */
   position: relative;
 }
 
 .reviews-list {
   display: flex;
-  transition: transform 0.3s ease-in-out; /* Плавный переход между слайдами */
+  transition: transform 0.3s ease-in-out; /* Анимация для плавности */
   list-style: none;
   padding: 0;
   margin: 0;
   gap: 16px;
+  width: max-content; /* Убедитесь, что ширина контейнера соответствует его содержимому */
 }
 
 .reviews-item {
@@ -799,13 +800,13 @@ img {
 
 @media (min-width: 768px) {
   .reviews-item {
-    flex: 0 0 50%; /* Два элемента на планшете */
+    flex: 0 0 calc(50% - 8px); /* Два элемента на планшете */
   }
 }
 
 @media (min-width: 1280px) {
   .reviews-item {
-    flex: 0 0 33.33%; /* Три элемента на ноутбуке */
+    flex: 0 0 calc(33.33% - 16px); /* Три элемента на ноутбуке */
   }
 }
 

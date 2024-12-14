@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewsItems = document.querySelectorAll('.reviews-item');
   const totalItems = reviewsItems.length;
 
-  let currentIndex = 0;
+  let currentIndex = 0; // Индекс текущего элемента
   let startX = 0;
-  let currentTranslate = 0;
+  let currentTranslate = 0; // Текущее смещение
   let prevTranslate = 0;
   let isDragging = false;
 
@@ -18,12 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
   reviewsList.addEventListener('touchend', endDrag);
   reviewsList.addEventListener('mouseleave', endDrag);
 
+  // Начало свайпа
   function startDrag(e) {
     isDragging = true;
     startX = getPositionX(e);
-    reviewsList.style.transition = 'none'; // Убираем плавность во время перетаскивания
+    reviewsList.style.transition = 'none'; // Убираем анимацию во время перетаскивания
   }
 
+  // Логика перетаскивания
   function drag(e) {
     if (!isDragging) return;
     const currentPosition = getPositionX(e);
@@ -32,16 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     reviewsList.style.transform = `translateX(${currentTranslate}px)`;
   }
 
+  // Конец свайпа
   function endDrag() {
     isDragging = false;
-
     const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
     const movedBy = currentTranslate - prevTranslate;
 
+    // Логика перехода на следующий/предыдущий элемент
     if (movedBy < -50 && currentIndex < totalItems - 1) {
       currentIndex++;
     }
-
     if (movedBy > 50 && currentIndex > 0) {
       currentIndex--;
     }
@@ -49,12 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setPositionByIndex();
   }
 
+  // Получение позиции касания/мыши
   function getPositionX(e) {
     return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
   }
 
+  // Установка позиции слайда
   function setPositionByIndex() {
-    const itemWidth = reviewsItems[0].offsetWidth + 16;
+    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
     currentTranslate = -currentIndex * itemWidth;
     prevTranslate = currentTranslate;
     reviewsList.style.transition = 'transform 0.3s ease-in-out';
