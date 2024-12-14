@@ -776,49 +776,30 @@ img {
 
 /* swipper */
 
-/* Загальний стиль для списку */
-.reviews-list {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto; /* Дозволяє горизонтальне прокручування */
-  scroll-snap-type: x mandatory; /* Додає прив'язку до елементів при гортанні */
-  padding: 0;
-  margin: 0;
-  list-style: none;
+/* Контейнер Swiper */
+.swiper {
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Стилі для елементів списку */
+/* Список відгуків */
 .reviews-list {
   display: flex;
   gap: 16px;
-  overflow: hidden; /* Сховати зайві елементи за межами області видимості */
-  width: 100%;
-  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .reviews-item {
-  flex: 0 0 100%; /* Кожен елемент займає всю ширину */
-  transition: transform 0.3s ease; /* Анімація для плавного переходу між елементами */
+  flex: 0 0 auto;
+  border: 1px solid #d4bfc4;
+  border-radius: 24px;
+  padding: 20px 16px;
+  max-width: 335px;
 }
 
-.reviews-img {
-  display: block;
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-}
-
-@media (min-width: 768px) {
-  .reviews-item {
-    flex: 0 0 50%; /* Для планшетів показувати 2 елементи */
-  }
-}
-
-@media (min-width: 1280px) {
-  .reviews-item {
-    flex: 0 0 33.33%; /* Для ноутбуків показувати 3 елементи */
-  }
-}
+/* Загальний стиль для списку */
 
 /* #endregion */
 
