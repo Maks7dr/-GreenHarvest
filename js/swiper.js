@@ -3,65 +3,67 @@ document.addEventListener('DOMContentLoaded', () => {
   const reviewsItems = document.querySelectorAll('.reviews-item');
   const totalItems = reviewsItems.length;
 
-  let currentIndex = 0; // Индекс текущего элемента
+  let currentIndex = 0;
+
+  // Инициализация: показать первые элементы
+  function updateActiveItems() {
+    reviewsItems.forEach((item, index) => {
+      item.classList.remove('active');
+      if (window.innerWidth < 768) {
+        // На телефоне показываем один элемент
+        if (index === currentIndex) {
+          item.classList.add('active');
+        }
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1280) {
+        // На планшете показываем два элемента
+        if (
+          index === currentIndex ||
+          index === (currentIndex + 1) % totalItems
+        ) {
+          item.classList.add('active');
+        }
+      } else {
+        // На ноутбуке показываем все элементы
+        item.classList.add('active');
+      }
+    });
+  }
+
+  // Изначальная установка активных элементов
+  updateActiveItems();
+
+  // Свайп логика
   let startX = 0;
-  let currentTranslate = 0; // Текущее смещение
-  let prevTranslate = 0;
   let isDragging = false;
 
-  // Добавляем события для мыши и касания
-  reviewsList.addEventListener('mousedown', startDrag);
-  reviewsList.addEventListener('touchstart', startDrag);
-  reviewsList.addEventListener('mousemove', drag);
-  reviewsList.addEventListener('touchmove', drag);
-  reviewsList.addEventListener('mouseup', endDrag);
-  reviewsList.addEventListener('touchend', endDrag);
-  reviewsList.addEventListener('mouseleave', endDrag);
-
-  // Начало свайпа
-  function startDrag(e) {
+  reviewsList.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
     isDragging = true;
-    startX = getPositionX(e);
-    reviewsList.style.transition = 'none'; // Убираем анимацию во время перетаскивания
-  }
+  });
 
-  // Логика перетаскивания
-  function drag(e) {
+  reviewsList.addEventListener('touchmove', e => {
     if (!isDragging) return;
-    const currentPosition = getPositionX(e);
-    const diff = currentPosition - startX;
-    currentTranslate = prevTranslate + diff;
-    reviewsList.style.transform = `translateX(${currentTranslate}px)`;
-  }
+    const diff = e.touches[0].clientX - startX;
 
-  // Конец свайпа
-  function endDrag() {
+    // Если свайпнули влево
+    if (diff < -50) {
+      currentIndex = (currentIndex + 1) % totalItems; // Циклическое переключение вперёд
+      updateActiveItems();
+      isDragging = false;
+    }
+
+    // Если свайпнули вправо
+    if (diff > 50) {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems; // Циклическое переключение назад
+      updateActiveItems();
+      isDragging = false;
+    }
+  });
+
+  reviewsList.addEventListener('touchend', () => {
     isDragging = false;
-    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
-    const movedBy = currentTranslate - prevTranslate;
+  });
 
-    // Логика перехода на следующий/предыдущий элемент
-    if (movedBy < -50 && currentIndex < totalItems - 1) {
-      currentIndex++;
-    }
-    if (movedBy > 50 && currentIndex > 0) {
-      currentIndex--;
-    }
-
-    setPositionByIndex();
-  }
-
-  // Получение позиции касания/мыши
-  function getPositionX(e) {
-    return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-  }
-
-  // Установка позиции слайда
-  function setPositionByIndex() {
-    const itemWidth = reviewsItems[0].offsetWidth + 16; // Ширина элемента + gap
-    currentTranslate = -currentIndex * itemWidth;
-    prevTranslate = currentTranslate;
-    reviewsList.style.transition = 'transform 0.3s ease-in-out';
-    reviewsList.style.transform = `translateX(${currentTranslate}px)`;
-  }
+  // Пересчёт активных элементов при изменении ширины окна
+  window.addEventListener('resize', updateActiveItems);
 });

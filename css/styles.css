@@ -775,38 +775,50 @@ img {
 } */
 
 /* swipper */
+/* Основной контейнер для слайдера */
 .reviews-slider {
   overflow: hidden; /* Скрываем элементы за пределами контейнера */
   position: relative;
 }
 
+/* Список отзывов */
 .reviews-list {
   display: flex;
-  transition: transform 0.3s ease-in-out; /* Анимация для плавности */
+  transition: transform 0.3s ease-in-out; /* Плавное переключение */
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 16px;
-  width: max-content; /* Убедитесь, что ширина контейнера соответствует его содержимому */
 }
 
+/* Элементы отзывов */
 .reviews-item {
   flex: 0 0 100%; /* Один элемент занимает всю ширину */
+  opacity: 0; /* Скрыты по умолчанию */
+  transform: scale(0.8); /* Уменьшены для плавности */
+  transition: opacity 0.3s ease, transform 0.3s ease;
   border: 1px solid #d4bfc4;
   border-radius: 24px;
   padding: 20px 16px;
   background: #fff;
 }
 
+/* Видимые элементы */
+.reviews-item.active {
+  opacity: 1;
+  transform: scale(1); /* Активный элемент отображается */
+}
+
+/* Для планшетов */
 @media (min-width: 768px) {
   .reviews-item {
-    flex: 0 0 calc(50% - 8px); /* Два элемента на планшете */
+    flex: 0 0 calc(50% - 16px); /* Два элемента на экране */
   }
 }
 
+/* Для ноутбуков */
 @media (min-width: 1280px) {
   .reviews-item {
-    flex: 0 0 calc(33.33% - 16px); /* Три элемента на ноутбуке */
+    flex: 0 0 calc(33.33% - 16px); /* Три элемента на экране */
   }
 }
 
