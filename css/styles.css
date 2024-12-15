@@ -255,25 +255,25 @@ img {
   line-height: 100%;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  width: 315px;
+  max-width: 335px;
   margin-top: 48px;
   margin-bottom: 20px;
 }
 .hero-text {
   font-size: 14px;
   line-height: 143%;
-  width: 335px;
+  max-width: 335px;
 }
 
 @media only screen and (min-width: 768px) {
   .hero-title {
     font-size: 76px;
-    width: 704px;
+    max-width: 704px;
     margin-bottom: 24px;
   }
   .hero-text {
     font-size: 16px;
-    width: 603px;
+    max-width: 603px;
     line-height: 125%;
   }
 }
@@ -282,10 +282,10 @@ img {
   .hero-title {
     margin-top: 148px;
     margin-bottom: 128px;
-    width: 502px;
+    max-width: 502px;
   }
   .hero-text {
-    width: 472px;
+    max-width: 472px;
   }
 }
 
@@ -406,14 +406,14 @@ img {
 .works-captions {
   font-size: 14px;
   line-height: 143%;
-  width: 335px;
+  max-width: 335px;
   padding-bottom: 40px;
 }
 @media only screen and (min-width: 768px) {
   .works-captions {
     font-size: 16px;
     line-height: 125%;
-    width: 440px;
+    max-width: 440px;
     padding-bottom: 52px;
   }
 }
@@ -436,7 +436,7 @@ img {
 .works-item {
   border-radius: 15px;
   padding: 12px 24px 12px 100px;
-  width: 335px;
+  max-width: 335px;
   min-height: 84px;
   background-color: #fbfbfb;
   display: flex;
@@ -446,7 +446,7 @@ img {
 @media only screen and (min-width: 768px) {
   .works-item {
     padding-right: 15px;
-    width: 440px;
+    max-width: 440px;
     min-height: 76px;
   }
 }
@@ -496,8 +496,6 @@ img {
 
 /* #region Advertisement */
 
-.advertisement {
-}
 @media only screen and (min-width: 1280px) {
   .advertisement-container {
     padding-left: 116px;
@@ -512,9 +510,9 @@ img {
   color: #141414;
 }
 .advertisement-text {
-  display: flex;
+  display: inline-flex;
   border-radius: 12px;
-  width: 335px;
+  max-width: 335px;
   max-height: 102px;
   color: #fbfbfb;
   background-color: #576f35;
@@ -526,7 +524,7 @@ img {
   }
   .advertisement-text {
     align-items: flex-end;
-    width: 675px;
+    max-width: 675px;
     height: 86px;
   }
 }
@@ -536,7 +534,7 @@ img {
     max-width: 1054px;
   }
   .advertisement-text {
-    width: 808px;
+    max-width: 808px;
     height: 84px;
     align-items: center;
     margin-left: -16px;
@@ -911,6 +909,7 @@ img {
   height: 92px;
   margin-bottom: 20px;
   outline: none;
+  resize: none;
 }
 @media only screen and (min-width: 768px) {
   .order-textarea {
