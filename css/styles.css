@@ -127,6 +127,8 @@ address {
 button {
   cursor: pointer;
   font-family: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 img {
