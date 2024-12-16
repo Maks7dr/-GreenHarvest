@@ -536,7 +536,7 @@ img {
   }
   .advertisement-text {
     align-items: flex-end;
-    max-width: 675px;
+    min-width: 675px;
     height: 86px;
   }
 }
@@ -546,7 +546,7 @@ img {
     max-width: 1054px;
   }
   .advertisement-text {
-    max-width: 808px;
+    min-width: 808px;
     height: 84px;
     align-items: center;
     margin-left: -16px;
